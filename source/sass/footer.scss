@@ -1,0 +1,133 @@
+.footer {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 80px;
+  }
+}
+
+.footer__block {
+  width: 400px;
+  position: relative;
+
+  &:nth-child(1) {
+    margin-left: 28px;
+    width: 430px;
+
+    &::after {
+      right: -40px;
+    }
+  }
+
+  &:nth-child(2) {
+    &::after {
+      right: 26px;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    height: 189px;
+    width: 1px;
+    background-color: $grey;
+    top: 19px;
+  }
+
+  &:last-child {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.footer__list-wrapper {
+  display: flex;
+}
+
+.footer__title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 32px;
+  color: $dark;
+}
+
+.footer__next-link {
+  font-size: 14px;
+  line-height: 17px;
+  color: $dark;
+  opacity: 0.5;
+}
+
+.footer__next {
+  .footer__title {
+    margin-bottom: 15px;
+  }
+}
+
+.footer__next-list {
+  margin-right: 50px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.footer__contact {
+  padding-left: 130px;
+}
+
+.footer__email {
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration-line: underline;
+  color: $accent-basic;
+  margin-left: 42px;
+  display: inline-block;
+  margin-bottom: 18px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 26px;
+    height: 20px;
+    background: url("../img/footer-email.svg") no-repeat center center;
+    top: -4px;
+    left: -41px;
+  }
+}
+
+.footer__phone-link {
+  line-height: 32px;
+  text-decoration-line: underline;
+  color: $accent-basic;
+  margin-left: 40px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 30px;
+    height: 30px;
+    background: url("../img/footer-phone.svg") no-repeat center center;
+    top: -4px;
+    left: -41px;
+  }
+}
+
+.footer__corporate {
+  margin-left: 23px;
+
+  .footer__title {
+    margin-bottom: 20px;
+  }
+}
+
+.footer__corporate-text {
+  font-size: 14px;
+  line-height: 24px;
+  color: $dark;
+  opacity: 0.5;
+  letter-spacing: -0.01em;
+}

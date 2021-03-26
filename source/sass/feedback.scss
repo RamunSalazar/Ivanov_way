@@ -1,0 +1,144 @@
+.feedback {
+  margin-bottom: 143px;
+
+  .container {
+    padding-left: 52px;
+    position: relative;
+  }
+}
+
+.feedback__form-wrapper {
+  position: absolute;
+  top: 70px;
+  right: 12px;
+  background-color: $white;
+  border-radius: 5px;
+  box-shadow: 0px 4px 30px rgba(41, 54, 66, 0.1);
+  width: 656px;
+  height: 290px;
+  padding-top: 25px;
+}
+
+.feedback__title {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 32px;
+  text-align: center;
+  color: $dark;
+  margin-bottom: 10px;
+}
+
+.feedback__text {
+  line-height: 24px;
+  display: inline-block;
+  text-align: center;
+  color: $dark;
+  width: 100%;
+  margin-bottom: 23px;
+}
+
+.feedback__feldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 27px 0;
+  text-align: center;
+}
+
+.feedback__input {
+  padding: 15px;
+  width: 240px;
+  border: 1px solid $grey;
+
+  &::placeholder {
+    font-family: "Montserrat", "Arial", sans-serif;;
+    font-size: 14px;
+    line-height: 17px;
+    color: $grey-dark;
+  }
+}
+
+.feedback__phone {
+  margin-right: 10px;
+
+  &::placeholder {
+    padding-left: 11px;
+  }
+}
+
+
+.feedback__phone-label {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "*";
+    width: 6px;
+    height: 6px;
+    color: $accent-basic;
+    top: -10px;
+    left: 15px;
+  }
+}
+
+.feedback__button-send {
+  margin: 0 auto;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background-color: $accent-basic;
+  border: none;
+  padding: 18px 43px;
+  color: $white;
+
+}
+
+.feedback__modal-wrapper {
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  &--open {
+    display: flex;
+  }
+}
+
+.feedback__modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $grey-light;
+  width: 728px;
+  height: 444px;
+  position: relative;
+}
+
+.feedback__button-close {
+  width: 22px;
+  height: 22px;
+  border: none;
+  background-color: transparent;
+  background-image: url("../img/price-close.svg");
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.feebback__modal-title {
+  width: 400px;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 43px;
+  text-align: center;
+  color: $grey-dark;
+}
