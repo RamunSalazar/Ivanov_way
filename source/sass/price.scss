@@ -348,6 +348,7 @@
   &:hover,
   &:focus {
     background-color: $orange;
+    cursor: pointer;
   }
 }
 
@@ -481,6 +482,10 @@
     color: $grey-dark;
   }
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &--error {
     border-color: $accent-basic;
   }
@@ -519,6 +524,10 @@
   border: none;
   padding: 18px 39px;
   color: $white;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .price__modal-img {
