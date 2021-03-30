@@ -2,3 +2,22 @@
   margin: 0 auto;
   width: 1182px;
 }
+
+@media (min-width: $desktop-width) and (max-width: $desctop-content-width - 1px) {
+  .container {
+    width: 1024px;
+  }
+}
+
+@media (max-width: $desktop-width - 1px) {
+  .container {
+    width: auto;
+    padding: 0 21px;
+  }
+}
+
+@media (max-width: $table-width - 1) {
+  .container {
+    padding: 0 16px;
+  }
+}

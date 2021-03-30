@@ -1,0 +1,56 @@
+.modal-wrapper {
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 1px;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 3;
+
+  &--open {
+    display: flex;
+  }
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $grey-light;
+  width: 728px;
+  height: 444px;
+  position: relative;
+}
+
+.modal__button-close {
+  width: 22px;
+  height: 22px;
+  border: none;
+  background-color: transparent;
+  background-image: url("../img/price-close.svg");
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.modal__title {
+  width: 400px;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 43px;
+  text-align: center;
+  color: $grey-dark;
+}
+
+@media (max-width: $table-width - 1px) {
+  .modal {
+    width: 100%;
+  }
+}

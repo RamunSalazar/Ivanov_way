@@ -11,7 +11,7 @@
 }
 
 .price__tab {
-  margin-bottom: 255px;
+  margin-bottom: 235px;
 }
 
 .price__tab-list {
@@ -42,6 +42,10 @@
 .price__tab-button {
   border: none;
   background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .price__button-text {
@@ -60,6 +64,30 @@
 
 .price__tab-card {
   display: none;
+  position: relative;
+  padding-bottom: 20px;
+  background-repeat: no-repeat;
+  background-position: 471px 35px;
+
+  &:nth-of-type(1) {
+    background-image: url("../img/greece-tab.png");
+  }
+
+  &:nth-of-type(2) {
+    background-image: url("../img/albania-tab.png");
+  }
+
+  &:nth-of-type(3) {
+    background-image: url("../img/macedonia-tab.png");
+  }
+
+  &:nth-of-type(4) {
+    background-image: url("../img/montenegro-tab.png");
+  }
+
+  &:nth-of-type(5) {
+    background-image: url("../img/croatia-tab.png");
+  }
 }
 
 .price__card-show {
@@ -100,13 +128,10 @@
   color: $white;
   background-color: $accent-basic;
   padding: 30px 37px;
-}
 
-.price__tab-wrapper {
-  &:nth-child(2) {
-    position: relative;
-    top: 36px;
-    left: 100px;
+  &:hover,
+  &:focus {
+    background-color: $orange;
   }
 }
 
@@ -114,10 +139,10 @@
   position: absolute;
   z-index: 1;
   width: 352px;
-  top: 113px;
-  right: -300px;
+  top: 149px;
+  right: -18px;
   background-color: $white;
-  padding: 0 30px 30px 30px;
+  padding: 0 30px 20px 30px;
 }
 
 .price__review-title {
@@ -152,6 +177,7 @@
   display: flex;
   align-items: center;
 }
+
 .price__review-img {
   margin-left: 1px;
   margin-right: 15px;
@@ -162,20 +188,19 @@
   font-size: 16px;
   line-height: 20px;
   letter-spacing: -0.466667px;
+  position: relative;
+  top: -5px;
+}
+
+.price__list {
+  display: flex;
 }
 
 .price__card-wrapper {
   display: flex;
 }
 
-.price__card {
-  border: 1px solid $middle-dark;
-  border-radius: 6px;
-  padding-left: 31px;
-  padding-top: 12px;
-  padding-right: 29px;
-  padding-bottom: 30px;
-
+.price__item {
   &:nth-child(1) {
     margin-right: 30px;
 
@@ -202,6 +227,15 @@
       top: 15px;
     }
   }
+}
+
+.price__card {
+  border: 1px solid $middle-dark;
+  border-radius: 6px;
+  padding-left: 31px;
+  padding-top: 12px;
+  padding-right: 29px;
+  padding-bottom: 30px;
 
   &:hover,
   &:focus-within {
@@ -310,6 +344,11 @@
   color: $white;
   background-color: $accent-basic;
   padding: 30px 70px;
+
+  &:hover,
+  &:focus {
+    background-color: $orange;
+  }
 }
 
 .price__title {
@@ -370,11 +409,16 @@
 }
 
 .price__modal-wrapper {
+  position: fixed;
   width: 100%;
   height: 100%;
   display: none;
   align-items: center;
   justify-content: center;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.8);
+  top: 1px;
+  left: -1px;
 
   &--open {
     display: flex;
@@ -399,6 +443,7 @@
 .price__form-wrapper {
   position: relative;
   padding-top: 52px;
+  width: 100%;
 }
 
 .price__modal-close {
@@ -430,10 +475,14 @@
   margin-bottom: 20px;
 
   &::placeholder {
-    font-family: "Montserrat", "Arial", sans-serif;;
+    font-family: "Montserrat", "Arial", sans-serif;
     font-size: 14px;
     line-height: 17px;
     color: $grey-dark;
+  }
+
+  &--error {
+    border-color: $accent-basic;
   }
 }
 
@@ -470,4 +519,690 @@
   border: none;
   padding: 18px 39px;
   color: $white;
+}
+
+.price__modal-img {
+  min-width: 338px;
+  height: 444px;
+}
+
+.price__input-wrapper {
+  position: relative;
+}
+
+.price__error-message {
+  display: none;
+  position: absolute;
+  font-size: 12px;
+  line-height: 15px;
+  color: $accent-basic;
+  top: -15px;
+  left: 0;
+
+  &--show {
+    display: block;
+  }
+}
+
+@media (min-resolution: 2dppx) {
+  .price {
+    background-image: url("../img/price-background@2x.png");
+    background-repeat: no-repeat;
+    background-position: 212px 135px;
+  }
+
+  .price__tab-card {
+    background-repeat: no-repeat;
+    background-position: 471px 35px;
+
+    &:nth-of-type(1) {
+      background-image: url("../img/greece-tab@2x.png");
+    }
+
+    &:nth-of-type(2) {
+      background-image: url("../img/albania-tab@2x.png");
+    }
+
+    &:nth-of-type(3) {
+      background-image: url("../img/macedonia-tab@2x.png");
+    }
+
+    &:nth-of-type(4) {
+      background-image: url("../img/montenegro-tab@2x.png");
+    }
+
+    &:nth-of-type(5) {
+      background-image: url("../img/croatia-tab@2x.png");
+    }
+  }
+}
+
+@media (min-width: $desktop-width) and (max-width: $desctop-content-width - 1px) {
+  .price {
+    margin-left: 10px;
+
+    .container {
+      width: 995px;
+    }
+  }
+
+  .price__tab-review {
+    right: 5px;
+  }
+
+  .price__item {
+    &:nth-child(1),
+    &:nth-child(2) {
+      margin-right: 10px;
+    }
+  }
+
+  .price__card {
+    padding-left: 11px;
+    padding-right: 9px;
+
+    &:hover,
+    &:focus-within {
+      padding-left: 9px;
+      padding-right: 7px;
+    }
+  }
+}
+
+@media (max-width: $desktop-width - 1px) {
+  .price {
+    margin-left: 0;
+    background-image: none;
+    margin-bottom: 123px;
+
+    .container {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  .price__card-show {
+    flex-direction: column;
+  }
+
+  .price__card-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .price__tab-list {
+    padding-top: 10px;
+    margin-left: 35px;
+    margin-bottom: 8px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
+
+  .price__tab-card {
+    .price__background-wrapper {
+      background-position: 0 0;
+      padding-bottom: 50px;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    &:nth-of-type(1) {
+      background-image: none;
+
+      .price__background-wrapper {
+        background-image: url("../img/greece-tab-tablet.png");
+      }
+    }
+
+    &:nth-of-type(2) {
+      background-image: none;
+
+      .price__background-wrapper {
+        background-image: url("../img/albania-tab-tablet.png");
+      }
+    }
+
+    &:nth-of-type(3) {
+      background-image: none;
+
+      .price__background-wrapper {
+        background-image: url("../img/macedonia-tab-tablet.png");
+      }
+    }
+
+    &:nth-of-type(4) {
+      background-image: none;
+
+      .price__background-wrapper {
+        background-image: url("../img/montenegro-tab-tablet.png");
+      }
+    }
+
+    &:nth-of-type(5) {
+      background-image: none;
+
+      .price__background-wrapper {
+        background-image: url("../img/croatia-tab-tablet.png");
+      }
+    }
+  }
+
+  .price__tab-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .price__tab {
+    margin-bottom: 18px;
+  }
+
+  .price__tab-title {
+    font-size: 30px;
+    line-height: 45px;
+    letter-spacing: normal;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .price__tab-text {
+    width: calc(100% - 42px);
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
+  .price__tab-link {
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: 500;
+    padding: 19px 52px;
+
+    &:active {
+      background-color: $orange;
+    }
+  }
+
+  .price__tab-review {
+    position: relative;
+    width: 322px;
+    top: 80px;
+    padding-top: 1px;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .price__wrapper {
+    order: 0;
+    padding-top: 46px;
+  }
+
+  .price__title {
+    font-size: 30px;
+    line-height: 45px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .price__text {
+    width: calc(100% - 42px);
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 32px;
+    margin-left: 21px;
+  }
+
+  .price__feedback-wrapper {
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .price__feedback-text {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .price__feedback-link {
+    font-size: 18px;
+    color: $accent-basic;
+    text-decoration: underline;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .price__list {
+    order: 1;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .price__item {
+    &:nth-child(1) {
+      margin-left: auto;
+      margin-right: 45px;
+
+      .price__card-list {
+        margin-bottom: 43px;
+      }
+    }
+
+    &:nth-child(2) {
+      margin-right: auto;
+
+      .price__card-title {
+        letter-spacing: -1.4px;
+        margin-right: 0;
+      }
+
+      .price__text-price {
+        top: 8px;
+      }
+    }
+  }
+
+  .price__card {
+    width: 248px;
+    padding: 0;
+    padding-top: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    &:hover,
+    &:focus-within {
+      width: 244px;
+      padding: 0;
+      padding-right: 20px;
+      padding-left: 20px;
+
+      .price__card-list {
+        margin-left: 28px;
+      }
+
+      .price__card-text {
+        position: relative;
+        left: -2px;
+      }
+
+      .price__card-title {
+        margin-top: 27px;
+      }
+
+      .price__card-link {
+        width: 284px;
+        padding-bottom: 18px;
+      }
+    }
+  }
+
+  .price__title-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2px;
+  }
+
+  .price__card-title {
+    font-size: 24px;
+    line-height: 38px;
+    letter-spacing: -0.1px;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+
+  .price__card-text {
+    width: 248px;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .price__card-list {
+    margin-bottom: 28px;
+    position: relative;
+
+    &::before {
+      width: 248px;
+      top: -22px;
+    }
+  }
+
+  .price__card-item {
+    margin-bottom: 10px;
+  }
+
+  .price__card-link {
+    width: 288px;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.2em;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    left: -20px;
+
+    &:active {
+      background-color: $orange;
+    }
+  }
+
+  @media (min-resolution: 2dppx) {
+    .price__tab-card {
+      .price__background-wrapper {
+        background-position: 0 0;
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+
+      &:nth-of-type(1) {
+        background-image: none;
+
+        .price__background-wrapper {
+          background-image: url("../img/greece-tab-tablet@2x.png");
+        }
+      }
+
+      &:nth-of-type(2) {
+        background-image: none;
+
+        .price__background-wrapper {
+          background-image: url("../img/albania-tab-tablet@2x.png");
+        }
+      }
+
+      &:nth-of-type(3) {
+        background-image: none;
+
+        .price__background-wrapper {
+          background-image: url("../img/macedonia-tab-tablet@2x.png");
+        }
+      }
+
+      &:nth-of-type(4) {
+        background-image: none;
+
+        .price__background-wrapper {
+          background-image: url("../img/montenegro-tab-tablet@2x.png");
+        }
+      }
+
+      &:nth-of-type(5) {
+        background-image: none;
+
+        .price__background-wrapper {
+          background-image: url("../img/croatia-tab-tablet@2x.png");
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $table-width - 1px) {
+  .price {
+    position: relative;
+    top: -58px;
+    background-image: none;
+    margin-bottom: 0;
+  }
+
+  .price__tab-list {
+    margin-left: 14px;
+    margin-bottom: 5px;
+  }
+
+  .price__tab-title {
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  .price__tab-text {
+    width: calc(100% - 28px);
+    margin-bottom: 17px;
+  }
+
+  .price__tab-link {
+    width: 184px;
+    position: relative;
+    left: -1px;
+    padding: 19px 32px 19px 72px;
+  }
+
+  .price__tab-card {
+    .price__background-wrapper {
+      background-position: 0 20px;
+      padding-bottom: 35px;
+    }
+
+    &:nth-of-type(1) {
+      .price__background-wrapper {
+        background-image: url("../img/greece-tab-mobile.png");
+      }
+    }
+
+    &:nth-of-type(2) {
+      .price__background-wrapper {
+        background-image: url("../img/albania-tab-mobile.png");
+      }
+    }
+
+    &:nth-of-type(3) {
+      .price__background-wrapper {
+        background-image: url("../img/macedonia-tab-mobile.png");
+      }
+    }
+
+    &:nth-of-type(4) {
+      .price__background-wrapper {
+        background-image: url("../img/montenegro-tab-mobile.png");
+      }
+    }
+
+    &:nth-of-type(5) {
+      .price__background-wrapper {
+        background-image: url("../img/croatia-tab-mobile.png");
+      }
+    }
+  }
+
+  .price__wrapper {
+    padding-top: 31px;
+  }
+
+  .price__tab-review {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 12px;
+    padding-bottom: 14px;
+    width: 228px;
+    top: 70px;
+    position: relative;
+    left: -1px;
+  }
+
+  .price__review-title {
+    font-size: 20px;
+    line-height: 24px;
+    width: 100%;
+    text-align: center;
+
+    &::after {
+      bottom: -13px;
+      left: 80px;
+    }
+  }
+
+  .price__review-text {
+    letter-spacing: -0.608333px;
+    opacity: 0.7;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 17px;
+  }
+
+  .price__review-wrapper {
+    flex-direction: column;
+  }
+
+  .price__review-img {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .price__review-author {
+    letter-spacing: -0.166667px;
+    margin-left: 7px;
+    top: -10px;
+  }
+
+  .price__title {
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  .price__text {
+    margin-bottom: 18px;
+  }
+
+  .price__feedback-wrapper {
+    margin-bottom: 38px;
+  }
+
+  .price__feedback-text {
+    letter-spacing: 0.01em;
+  }
+
+  .price__list {
+    flex-direction: column;
+  }
+
+  .price__item {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 27px;
+
+    &:nth-child(1) {
+      margin-left: auto;
+      margin-right: auto;
+
+      .price__card-list {
+        margin-bottom: 30px;
+      }
+    }
+
+    &:nth-child(2) {
+      margin-left: auto;
+      margin-right: auto;
+
+      .price__card-title {
+        letter-spacing: -1.4px;
+        margin-right: 0;
+      }
+
+      .price__text-price {
+        top: 8px;
+        left: -5px;
+      }
+    }
+  }
+
+  .price__modal {
+    padding: 0 16px;
+    width: 100%;
+    height: 568px;
+  }
+
+  .price__modal-img {
+    display: none;
+  }
+
+  .price__modal-feldset {
+    margin-left: 0;
+  }
+
+  .price__form-wrapper {
+    padding-top: 100px;
+  }
+
+  .price__modal-close {
+    right: 4px;
+  }
+
+  .price__modal-input {
+    padding: 15px;
+    width: calc(100% - 32px);
+    margin-bottom: 20px;
+  }
+
+  .price__modal-phone {
+    margin-left: 2px;
+  }
+
+  .price__modal-send {
+    margin-left: 0;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    width: 100%;
+    justify-content: center;
+    padding-top: 19px;
+    padding-bottom: 19px;
+  }
+
+  @media (min-resolution: 2dppx) {
+    .price__tab-card {
+      .price__background-wrapper {
+        background-position: 0 20px;
+        padding-bottom: 35px;
+      }
+
+      &:nth-of-type(1) {
+        .price__background-wrapper {
+          background-image: url("../img/greece-tab-mobile@2x.png");
+        }
+      }
+
+      &:nth-of-type(2) {
+        .price__background-wrapper {
+          background-image: url("../img/albania-tab-mobile@2x.png");
+        }
+      }
+
+      &:nth-of-type(3) {
+        .price__background-wrapper {
+          background-image: url("../img/macedonia-tab-mobile@2x.png");
+        }
+      }
+
+      &:nth-of-type(4) {
+        .price__background-wrapper {
+          background-image: url("../img/montenegro-tab-mobile@2x.png");
+        }
+      }
+
+      &:nth-of-type(5) {
+        .price__background-wrapper {
+          background-image: url("../img/croatia-tab-mobile@2x.png");
+        }
+      }
+    }
+  }
 }
