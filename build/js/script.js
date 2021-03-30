@@ -16,7 +16,6 @@ const priceModalEmailElement = document.querySelector('.price__modal-email');
 const feedbackFormElement = document.querySelector('.feedback__form');
 const feedbackPhoneElement = document.querySelector('.feedback__phone');
 const feedbackEmailElement = document.querySelector('.feedback__email');
-const priceTabListElement = document.querySelector('.price__tab-list');
 
 const ESCAPE_KEY_CODE = 27;
 let storagePhone = '';
@@ -36,7 +35,7 @@ headerToggleButtonElement.addEventListener('click', () => {
 });
 
 for (let i = 0; i < priceTabButtonElement.length; i++) {
-  priceTabButtonElement[i].addEventListener('click', (evt) => {
+  priceTabButtonElement[i].addEventListener('click', () => {
     priceTabCardsElements.forEach(element => {
       element.classList.remove('price__card-show');
     });
@@ -51,15 +50,15 @@ for (let i = 0; i < priceTabButtonElement.length; i++) {
 }
 
 try {
-  storagePhone = localStorage.getItem("phone");
+  storagePhone = localStorage.getItem('phone');
 } catch (err) {
-  console.log(err);
+  /*  */
 }
 
 try {
-  storageEmail = localStorage.getItem("email");
+  storageEmail = localStorage.getItem('email');
 } catch (err) {
-  console.log(err);
+  /*  */
 }
 
 for (let i = 0; i < priceBuyLinksElements.length; i++) {
@@ -67,10 +66,10 @@ for (let i = 0; i < priceBuyLinksElements.length; i++) {
     evt.preventDefault();
     priceModalWrapperElement.classList.add('price__modal-wrapper--open');
 
-    if(storagePhone && !storageEmail) {
+    if (storagePhone && !storageEmail) {
       priceModalPhoneElement.value = storagePhone;
       priceModalEmailElement.focus();
-    } else if(!storagePhone && storageEmail){
+    } else if (!storagePhone && storageEmail) {
       priceModalEmailElement.value = storageEmail;
       priceModalPhoneElement.focus();
     } else {
@@ -81,17 +80,17 @@ for (let i = 0; i < priceBuyLinksElements.length; i++) {
 
 priceModalCloseElement.addEventListener('click', () => {
   priceModalWrapperElement.classList.remove('price__modal-wrapper--open');
-})
+});
 
 const validPhone = (name) => {
-  let pattern = (/\+[7]\s[0-9]{10}/)
+  let pattern = (/\+[7]\s[0-9]{10}/);
   return pattern.test(name);
-}
+};
 
 const validEmail = (email) => {
   let pattern = (/[^\@]+\@[^\.]+\..+/);
   return pattern.test(email);
-}
+};
 
 priceFormElement.addEventListener('submit', (evt) => {
   let phone = validPhone(priceModalPhoneElement.value);
@@ -109,14 +108,14 @@ priceFormElement.addEventListener('submit', (evt) => {
     priceModalEmailElement.classList.remove('price__modal-input--error');
     priceModalPhoneElement.nextElementSibling.classList.remove('price__error-message--show');
     priceModalEmailElement.nextElementSibling.classList.remove('price__error-message--show');
-    localStorage.setItem("phone", priceModalPhoneElement.value);
+    localStorage.setItem('phone', priceModalPhoneElement.value);
     priceModalPhoneElement.value = '';
     priceModalEmailElement.value = '';
     priceModalWrapperElement.classList.remove('price__modal-wrapper--open');
     modalWrapperElement.classList.add('modal-wrapper--open');
   } else if (!phone && email) {
     evt.preventDefault();
-    localStorage.setItem("email", priceModalEmailElement.value);
+    localStorage.setItem('email', priceModalEmailElement.value);
     priceModalPhoneElement.classList.add('price__modal-input--error');
     priceModalPhoneElement.nextElementSibling.classList.add('price__error-message--show');
   } else {
@@ -125,8 +124,8 @@ priceFormElement.addEventListener('submit', (evt) => {
     priceModalEmailElement.classList.remove('price__modal-input--error');
     priceModalPhoneElement.nextElementSibling.classList.remove('price__error-message--show');
     priceModalEmailElement.nextElementSibling.classList.remove('price__error-message--show');
-    localStorage.setItem("phone", priceModalPhoneElement.value);
-    localStorage.setItem("email", priceModalEmailElement.value);
+    localStorage.setItem('phone', priceModalPhoneElement.value);
+    localStorage.setItem('email', priceModalEmailElement.value);
     priceModalPhoneElement.value = '';
     priceModalEmailElement.value = '';
     priceModalWrapperElement.classList.remove('price__modal-wrapper--open');
@@ -138,7 +137,7 @@ feedbackFormElement.addEventListener('submit', (evt) => {
   let phone = validPhone(feedbackPhoneElement.value);
   let email = validEmail(feedbackEmailElement.value);
 
-   if (!phone && !email) {
+  if (!phone && !email) {
     evt.preventDefault();
     feedbackPhoneElement.classList.add('feedback__input--error');
     feedbackEmailElement.classList.add('feedback__input--error');
@@ -171,7 +170,7 @@ feedbackFormElement.addEventListener('submit', (evt) => {
 
 modalButtonCloseElement.addEventListener('click', () => {
   modalWrapperElement.classList.remove('modal-wrapper--open');
-})
+});
 
 window.addEventListener('keydown', (evt) => {
   if (evt.keyCode === ESCAPE_KEY_CODE) {
@@ -186,48 +185,3 @@ window.addEventListener('click', (evt) => {
     modalWrapperElement.classList.remove('modal-wrapper--open');
   }
 });
-
-document.addEventListener('touchstart', handleTouchStart, false);
-document.addEventListener('touchmove', handleTouchMove, false);
-
-var xDown = null;
-var yDown = null;
-
-function getTouches(evt) {
-  return evt.touches;
-}
-
-function handleTouchStart(evt) {
-  const firstTouch = getTouches(evt)[0];
-  xDown = firstTouch.clientX;
-  yDown = firstTouch.clientY;
-}
-
-function handleTouchMove(evt) {
-  if ( ! xDown || ! yDown ) {
-    return;
-  }
-
-  var xUp = evt.touches[0].clientX;
-  var yUp = evt.touches[0].clientY;
-
-  var xDiff = xDown - xUp;
-  var yDiff = yDown - yUp;
-
-  if (Math.abs(xDiff) > Math.abs(yDiff)) {/* отлавливаем разницу в движении */
-    if (xDiff > 0) {
-    /* swipe влево */
-    } else {
-  /* swipe вправо */
-    }
-  } else {
-    if (yDiff > 0) {
-    /* swipe вверх */
-    } else {
-    /* swipe вниз */
-    }
-  }
-  /* свайп был, обнуляем координаты */
-  xDown = null;
-  yDown = null;
-};
